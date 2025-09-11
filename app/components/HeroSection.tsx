@@ -2,14 +2,13 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
-import { 
-  SiJavascript, 
-  SiReact, 
-  SiNextdotjs, 
-  SiTypescript, 
+import {
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
   SiNodedotjs,
-  SiTailwindcss, 
-
+  SiTailwindcss,
 } from "react-icons/si";
 
 type HeroSectionProps = {
@@ -25,12 +24,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
   ];
 
   const skills = [
-    { icon: SiJavascript },
     { icon: SiReact },
-    { icon: SiNextdotjs },
-    { icon: SiTypescript },
-    { icon: SiNodedotjs },
-    { icon: SiTailwindcss },
+ 
   ];
 
   return (
@@ -59,7 +54,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/80 hover:text-[#9C27B0] transition-colors"
+              className="text-white/80 hover:text-red-600 transition-colors"
             >
               <Icon size={24} />
             </a>
@@ -100,12 +95,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
             className="flex flex-wrap justify-center gap-12 mt-12"
           >
             {skills.map(({ icon: Icon }) => (
-              <motion.div
-                key={Icon.toString()}
-                whileHover={{ scale: 1.1 }}
-                className="text-white/80 hover:text-[#9C27B0] transition-all duration-150 cursor-pointer
-                hover:drop-shadow-[0_0_8px_rgba(156,39,176,0.5)]"
-              >
+              <motion.div key={Icon.toString()} className="text-white/90  ">
                 <Icon size={48} />
               </motion.div>
             ))}
@@ -121,10 +111,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
               size="lg"
               onClick={() => scrollToSection("contact")}
               className="group relative px-16 py-6 text-lg 
-             bg-white/10 backdrop-blur-lg border border-white/20 
+             bg-white/6 backdrop-blur-lg border border-white/7 
              text-white transition-all duration-300 ease-in-out 
-             hover:bg-white/20 hover:border-white/30 
-             hover:shadow-[0_0_12px_rgba(255,255,255,0.3),0_0_24px_rgba(255,255,255,0.4)] 
+             hover:bg-white/10 hover:border-white/12 
+             
              hover:scale-105 cursor-pointer"
             >
               <span className="relative z-10 font-medium tracking-wider">
