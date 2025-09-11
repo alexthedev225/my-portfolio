@@ -1,8 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { useCallback } from "react";
 import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
 import { 
   SiJavascript, 
@@ -11,13 +9,15 @@ import {
   SiTypescript, 
   SiNodedotjs,
   SiTailwindcss, 
-  SiMongodb, 
-  SiVercel, 
-  SiGit, 
-  SiGithub 
+
 } from "react-icons/si";
 
-const HeroSection = ({ scrollToSection }: { scrollToSection: (sectionId: string) => void }) => {
+type HeroSectionProps = {
+  scrollToSection: (sectionId: string) => void;
+  id: string;
+};
+
+const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
   const socialLinks = [
     { icon: FiGithub, href: "https://github.com/yourusername" },
     { icon: FiLinkedin, href: "https://linkedin.com/in/yourusername" },
@@ -30,28 +30,28 @@ const HeroSection = ({ scrollToSection }: { scrollToSection: (sectionId: string)
     { icon: SiNextdotjs },
     { icon: SiTypescript },
     { icon: SiNodedotjs },
-    { icon: SiTailwindcss }
+    { icon: SiTailwindcss },
   ];
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#4A148C]/40 via-[#7B1FA2]/30 to-[#9C27B0]/20">
-        <div className="absolute inset-0 bg-[url('/grain.png')] opacity-20 mix-blend-soft-light" />
-      </div>
+    <section
+      id={id}
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden rounded-3xl"
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-transparent" />
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="container px-4 mx-auto relative z-10"
       >
         {/* Social Links */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
-          className="absolute top-0 right-4 flex flex-col gap-6"
+          className="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-50"
         >
           {socialLinks.map(({ icon: Icon, href }, index) => (
             <a
@@ -68,23 +68,32 @@ const HeroSection = ({ scrollToSection }: { scrollToSection: (sectionId: string)
 
         {/* Main Content */}
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <motion.h2 
+          <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-white/80 text-xl mb-4"
+            className="berkshire-swash-regular text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-white"
           >
-            Full Stack Developer
+            Alex Konan
+          </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-white/99 text-xl mb-4"
+          >
+            Fullstack Developer
           </motion.h2>
 
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/80"
+            className="z-30 text-6xl mb-10 md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/80"
+            style={{ wordBreak: "break-word", lineHeight: "1.2" }} // Ajouter un "line-height" et ajuster les coupures de mots
           >
             Let's create your next digital project together
           </motion.h1>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
@@ -102,7 +111,7 @@ const HeroSection = ({ scrollToSection }: { scrollToSection: (sectionId: string)
             ))}
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
@@ -111,11 +120,12 @@ const HeroSection = ({ scrollToSection }: { scrollToSection: (sectionId: string)
             <Button
               size="lg"
               onClick={() => scrollToSection("contact")}
-              className="group relative px-16 py-6 text-lg
-              bg-black border border-white/20 text-white
-              transition-all duration-200 ease-out
-              hover:bg-white hover:text-black
-              hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+              className="group relative px-16 py-6 text-lg 
+             bg-white/10 backdrop-blur-lg border border-white/20 
+             text-white transition-all duration-300 ease-in-out 
+             hover:bg-white/20 hover:border-white/30 
+             hover:shadow-[0_0_12px_rgba(255,255,255,0.3),0_0_24px_rgba(255,255,255,0.4)] 
+             hover:scale-105 cursor-pointer"
             >
               <span className="relative z-10 font-medium tracking-wider">
                 Contact me

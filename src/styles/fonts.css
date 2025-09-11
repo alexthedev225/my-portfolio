@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Playfair Display'),
+       url('https://fonts.gstatic.com/s/playfairdisplay/v37/nuFkD-vYSZviVYUb_rj3ij__anPXDTnogkk7yRZrPA.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/playfairdisplay/v37/nuFkD-vYSZviVYUb_rj3ij__anPXDTnohkk7yRZrPA.woff') format('woff');
+  font-fallback: serif;
+}
+
+/* Fallback fonts */
+body {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}

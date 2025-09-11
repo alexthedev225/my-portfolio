@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
@@ -115,7 +116,18 @@
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
 }
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0) }
+  10% { transform: translate(-5%, -5%) }
+  30% { transform: translate(3%, -2%) }
+  50% { transform: translate(12%, 9%) }
+  70% { transform: translate(9%, 4%) }
+  90% { transform: translate(-1%, 7%) }
+}
 
+.animate-grain {
+  animation: grain 8s steps(10) infinite;
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -135,3 +147,7 @@
 }
 
 /* Supprimé l'animation shimmer qui n'est plus utilisée */
+.berkshire-swash-regular {
+  font-family: "Berkshire Swash", serif;
+  font-style: normal;
+}
