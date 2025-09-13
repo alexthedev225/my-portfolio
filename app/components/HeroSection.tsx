@@ -29,7 +29,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="container px-4 mx-auto relative z-10 max-w-xl mx-auto lg:max-w-5xl"
+        className="container px-4  relative z-10 max-w-xl mx-auto lg:max-w-5xl"
       >
         {/* Social Links avec glassmorphisme */}
         <motion.div
@@ -106,7 +106,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
               className="text-4xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent 
                              bg-white leading-tight max-w-4xl mx-auto"
             >
-              Let's create your next project together
+              Let&apos;s create your next project together
             </h1>
           </motion.div>
           {/* Après le titre "Fullstack Developer" */}

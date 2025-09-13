@@ -43,10 +43,10 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
         className="text-center mb-20 relative z-10"
       >
         <h2 className="text-5xl md:text-6xl font-extrabold text-white/90 tracking-tight mb-4">
-          Let's Connect
+          Let&apos;s Connect
         </h2>
         <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-          Have an idea or a project? Let's build something extraordinary
+          Have an idea or a project? Let&apos;s build something extraordinary
           together.
         </p>
       </motion.div>
