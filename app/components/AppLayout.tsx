@@ -30,13 +30,14 @@ export default function AppLayout() {
         {/* Séparation subtile */}
         <div className="h-1 w-1/2 bg-white/10 mx-auto my-0 rounded-full" />
 
-        {/* Skills Section */}
-        <Skills id="skills" />
+        {/* Project Section */}
+        <ProjectSection id="projects" />
+
         {/* Séparation subtile */}
         <div className="h-1 w-1/2 bg-white/10 mx-auto my-0 rounded-full" />
 
-        {/* Project Section */}
-        <ProjectSection id="projects" />
+        {/* Skills Section */}
+        <Skills id="skills" />
 
         {/* Séparation subtile */}
         <div className="h-1 w-1/2 bg-white/10 mx-auto my-0 rounded-full" />
