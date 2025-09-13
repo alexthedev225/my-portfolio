@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
+import Image from "next/image";
 
 type ProjectSectionProps = {
   id: string;
@@ -41,11 +42,13 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ id }) => {
             transition={{ delay: index * 0.15, type: "spring", stiffness: 80 }}
           >
             {/* Image plus grande */}
-            <div className="w-full lg:w-2/5 h-64 lg:h-80 rounded-2xl overflow-hidden border border-white/10 shadow-inner">
-              <img
+            <div className="w-full lg:w-2/5 h-64 lg:h-80 rounded-2xl overflow-hidden border border-white/10 shadow-inner relative">
+              <Image
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover rounded-2xl"
+                sizes="(max-width: 1024px) 100vw, 40vw"
               />
             </div>
 
