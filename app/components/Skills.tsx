@@ -1,14 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 type SkillsProps = {
   id: string;
 };
 
 const Skills: React.FC<SkillsProps> = ({ id }) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   const skills = [
     {
       title: "Frontend Development",
@@ -17,39 +14,44 @@ const Skills: React.FC<SkillsProps> = ({ id }) => {
       technologies: ["React", "Next.js", "TailwindCSS", "Responsive", "A11y"],
     },
     {
-      title: "UI, Optimization & Best Practices",
+      title: "UI & Optimization",
       description:
-        "Designs intuitive interfaces, implements SEO basics, and optimizes performance while maintaining clarity and accessibility.",
+        "Designs intuitive interfaces with attention to detail, implements SEO fundamentals, and optimizes performance while maintaining clarity and accessibility.",
       technologies: ["UI", "SEO", "Performance", "Debugging"],
     },
     {
       title: "API & REST Integration",
       description:
-        "Integrates REST APIs and external services for seamless frontend-backend communication and data handling.",
+        "Integrates REST APIs and external services for seamless frontend-backend communication, ensuring reliable data handling and smooth application workflows.",
       technologies: ["REST APIs", "API Routes", "Integration", "Data"],
     },
     {
       title: "Backend Development",
       description:
-        "Builds scalable backends with Node.js, Express, and optional PHP/Laravel support, focusing on modern fullstack solutions.",
-      technologies: ["Node.js", "Express", "Database", "PHP", "Laravel"],
+        "Builds scalable backends with Node.js, Express, and optionally PHP/Laravel, focusing on maintainable, efficient, and modern fullstack solutions.",
+      technologies: ["Node.js", "Express",  "PHP", "Laravel"],
     },
     {
       title: "Fullstack Development",
       description:
-        "Combines frontend, backend, and API layers with Next.js for unified, high-performance applications.",
+        "Combines frontend, backend, and API layers with Next.js to deliver unified, performant, and well-structured fullstack applications.",
       technologies: [
         "Next.js",
         "React",
         "TailwindCSS",
-        "Server/Client Components",
+    
       ],
     },
     {
-      title: "Version Control & Deployment",
+      title: "Project Deployment",
       description:
-        "Proficient with Git, GitHub, and deploying apps on Vercel; open to alternative platforms while maintaining modern workflows.",
-      technologies: ["Git", "GitHub", "Branching", "Pull Requests", "Vercel"],
+        "Manages version control with Git and GitHub, sets up deployments on Vercel and other platforms, and ensures projects are deployed reliably and efficiently.",
+      technologies: [
+        "Git",
+        "GitHub",
+        "CI/CD",
+        "Vercel",
+      ],
     },
   ];
 
@@ -62,12 +64,11 @@ const Skills: React.FC<SkillsProps> = ({ id }) => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9, rotate: -3 },
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      rotate: 0,
       transition: {
         type: "spring",
         stiffness: 120,
@@ -78,7 +79,11 @@ const Skills: React.FC<SkillsProps> = ({ id }) => {
   };
 
   return (
-    <section id={id} className="relative py-32 px-6 md:px-12 overflow-visible">
+    <section
+      id={id}
+      className="relative py-16 lg:py-32 px-6 md:px-12 overflow-visible max-w-xl mx-auto lg:max-w-5xl"
+    >
+      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -94,79 +99,56 @@ const Skills: React.FC<SkillsProps> = ({ id }) => {
         </p>
       </motion.div>
 
-      {/* Skills flow */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="relative z-10 flex flex-wrap justify-center items-start gap-12 md:gap-16"
+        className="relative z-10 flex flex-col items-center gap-8 max-w-3xl mx-auto"
       >
         {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            onHoverStart={() => setHoveredIndex(index)}
-            onHoverEnd={() => setHoveredIndex(null)}
-            className="group relative w-full sm:w-1/2 md:w-1/3 lg:w-1/4 "
-          >
-            {/* Glass module */}
-            <div
-              className={`relative p-8 rounded-3xl border border-white/10
-                          bg-white/5 backdrop-blur-3xl
-                          hover:scale-105 hover:rotate-1 hover:shadow-2xl hover:shadow-white/8
-                          transition-all duration-700 ease-out overflow-hidden`}
+          <div key={index} className="flex flex-col items-center w-full">
+            <motion.div
+              variants={itemVariants}
+              className="group flex flex-col gap-3 p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:scale-[1.01] transition-all w-full"
             >
-              {/* Subtle overlay */}
-              <div
-                className={`absolute inset-0 rounded-3xl bg-white/8 backdrop-blur-lg
-                            opacity-25 group-hover:opacity-50 transition-opacity duration-500`}
-              />
-
-              {/* Title */}
-              <h3 className="relative z-10 text-3xl font-bold text-white mb-3">
-                {skill.title}
-              </h3>
-
-              {/* Description */}
-              <p className="relative z-10 text-white/90 mb-4 text-sm md:text-base leading-relaxed">
+              <h3 className="text-2xl font-bold text-white">{skill.title}</h3>
+              <p className="text-white/90 text-sm md:text-base leading-relaxed mt-2">
                 {skill.description}
               </p>
-
-              {/* Technologies */}
-              <div className="flex flex-wrap gap-2 relative z-10">
+              <div className="flex flex-wrap gap-2 mt-3">
                 {skill.technologies.map((tech, i) => (
                   <span
                     key={i}
-                    className="text-xs font-medium text-white/90 bg-black/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20
-                               "
+                    className="text-xs font-medium text-white/90 bg-black/10 px-3 py-1.5 rounded-full border border-white/20"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
+            </motion.div>
 
-              {/* Minimal floating particles */}
-              <motion.div
-                className="absolute -top-2 -right-2 w-2 h-2 bg-white/20 rounded-full"
-                animate={{ y: [0, -4, 0], x: [0, 3, 0] }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 2,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.div
-                className="absolute -bottom-2 -left-2 w-2 h-2 bg-white/20 rounded-full"
-                animate={{ y: [0, 3, 0], x: [0, -3, 0] }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 2.5,
-                  ease: "easeInOut",
-                }}
-              />
-            </div>
-          </motion.div>
+            {/* Flèche verticale entre les skills sauf après le dernier */}
+            {index < skills.length - 1 && (
+              <div className="flex items-center mt-8">
+                <div className="w-px h-10 bg-white/70" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="-mt-1 h-8 w-6 text-white/80"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 5v14m0 0l-4-4m4 4l4-4"
+                  />
+                </svg>
+              </div>
+            )}
+          </div>
         ))}
       </motion.div>
     </section>

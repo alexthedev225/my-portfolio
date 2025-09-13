@@ -30,7 +30,10 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
   };
 
   return (
-    <section id={id} className="relative py-32 px-6 md:px-12 overflow-visible">
+    <section
+      id={id}
+      className="relative py-16 lg:py-32 px-6 md:px-12 max-w-xl mx-auto lg:max-w-5xl"
+    >
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -54,7 +57,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="relative z-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"
+        className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"
       >
         {["Your Name", "Your Email"].map((placeholder, i) => (
           <motion.input

@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
+import { Code2, } from "lucide-react";
 
 type HeroSectionProps = {
   scrollToSection: (sectionId: string) => void;
@@ -19,9 +20,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
   return (
     <section
       id={id}
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden rounded-3xl py-32"
+      className="relative  w-full flex items-center justify-center overflow-hidden rounded-3xl py-16 lg:py-32 "
     >
-      
       {/* Overlay original */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/80 to-transparent z-10" />
 
@@ -29,14 +29,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="container px-4 mx-auto relative z-10"
+        className="container px-4 mx-auto relative z-10 max-w-xl mx-auto lg:max-w-5xl"
       >
         {/* Social Links avec glassmorphisme */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-50"
+          className="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-666"
         >
           {socialLinks.map(({ icon: Icon, href }, index) => (
             <motion.a
@@ -67,7 +67,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
         </motion.div>
 
         {/* Main Content */}
-        <div className="max-w-5xl mx-auto text-center space-y-12">
+        <div className="max-w-5xl mx-auto text-center space-y-8">
           {/* Nom avec effet glassmorphisme */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -102,14 +102,21 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
             transition={{ delay: 0.7, duration: 1 }}
             className="relative"
           >
-           
-              <h1
-                className="text-4xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent 
+            <h1
+              className="text-4xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent 
                              bg-white leading-tight max-w-4xl mx-auto"
-              >
-                Let's create your next project together
-              </h1>
-            
+            >
+              Let's create your next project together
+            </h1>
+          </motion.div>
+          {/* Après le titre "Fullstack Developer" */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="flex justify-center "
+          >
+            <Code2 className="text-white/80 w-12 h-12" />
           </motion.div>
 
           {/* Button avec glassmorphisme avancé */}
@@ -117,7 +124,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="flex justify-center mt-16"
+            className="flex justify-center "
           >
             <motion.div
               whileHover={{ scale: 1.05 }}

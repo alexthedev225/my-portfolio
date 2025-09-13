@@ -8,17 +8,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    "title": "Culiko",
-    "description": "Culiko is more than just a cooking blog: it is a platform dedicated to food enthusiasts. Discover carefully selected and tested recipes, created with love and attention to detail. Join an active community of cooks and share unforgettable culinary moments. Our mission is to offer a unique experience by highlighting simple, delicious, and accessible recipes for everyone.",
-    "technologies": ["Next.js", "Prisma", "MongoDB", "Tailwind CSS", "NextAuth", "JWT", "React Hook Form"],
-    "image": "/images/blog-cuisine.png",
-    "url": "https://culiko.vercel.app"
+    title: "Luxorum",
+    description:
+      "Luxorum is a fully-built e-commerce application designed to showcase my ability to develop a project end-to-end. It features complete product management, dynamic shopping flows, and secure payment integration with Stripe, illustrating a realistic online shopping experience from concept to deployment.",
+    technologies: ["Next.js", "Tailwind CSS", "MongoDB", "Stripe"],
+    image: "/images/luxorum.png",
+    url: "https://luxorum.vercel.app",
   },
   {
-    "title": "Stereo Demo",
-    "description": "Stereo Demo is a modern web application dedicated to showcasing high-fidelity audio products. Dive into an immersive experience with a smooth and dynamic interface, enhanced by elegant animations. This marketing page highlights revolutionary headphones that redefine music listening by capturing every sound detail with exceptional clarity.",
-    "technologies": ["Next.js", "Tailwind CSS", "React", "Framer Motion", "Radix UI", "FontAwesome"],
-    "image": "/images/landing-casque.png",
-    "url": "https://stereodemo.vercel.app"
-  }
+    title: "Luxilearn",
+    description:
+      "Luxilearn is an e-learning platform developed entirely by me to demonstrate full-stack capabilities. It includes course creation, user management, authentication, and responsive design, offering a smooth and intuitive learning experience while reflecting modern development practices.",
+    technologies: ["Next.js", "Tailwind CSS", "MongoDB", "Prisma", "Auth"],
+    image: "/images/luxilearn.png",
+    url: "https://luxilearn.vercel.app",
+  },
 ];
