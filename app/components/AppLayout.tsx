@@ -24,24 +24,22 @@ export default function AppLayout() {
       <Navbar scrollToSection={scrollToSection} />
 
       {/* Contenu principal */}
-      <div className="relative z-10 flex-1 container mx-auto px-4 pt-30 space-y-16">
+      <div className="relative z-10 flex-1  px-4 pt-30 space-y-16">
         {/* Hero Section */}
         <HeroSection scrollToSection={scrollToSection} id="hero" />
-
         {/* Séparation subtile */}
-        <div className="h-1 w-1/2 bg-white/10 mx-auto my-12 rounded-full" />
+        <div className="h-1 w-1/2 bg-white/10 mx-auto my-0 rounded-full" />
+
+        {/* Skills Section */}
+        <Skills id="skills" />
+        {/* Séparation subtile */}
+        <div className="h-1 w-1/2 bg-white/10 mx-auto my-0 rounded-full" />
 
         {/* Project Section */}
         <ProjectSection id="projects" />
 
         {/* Séparation subtile */}
-        <div className="h-1 w-1/2 bg-white/10 mx-auto my-12 rounded-full" />
-
-        {/* Skills Section */}
-        <Skills id="skills" />
-
-        {/* Séparation subtile */}
-        <div className="h-1 w-1/2 bg-white/10 mx-auto my-12 rounded-full" />
+        <div className="h-1 w-1/2 bg-white/10 mx-auto my-0 rounded-full" />
 
         {/* Contact Section */}
         <ContactSection id="contact" />

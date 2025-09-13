@@ -1,43 +1,52 @@
 "use client";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const BackgroundAnimation = () => {
+const useStars = (count: number = 100) => {
+  const [stars, setStars] = useState<null | Array<{
+    size: number;
+    left: number;
+    top: number;
+    opacity: number;
+    delay: number;
+    duration: number;
+  }>>(null);
+
+  useEffect(() => {
+    setStars(
+      Array.from({ length: count }).map(() => ({
+        size: Math.random() * 3 + 0.5,
+        left: Math.random() * 100,
+        top: Math.random() * 55,
+        opacity: Math.random() * 0.6 + 0.4,
+        delay: Math.random() * 2,
+        duration: 2 + Math.random() * 2,
+      }))
+    );
+  }, [count]);
+
+  return stars;
+};
+
+const BackgroundWithStars = () => {
+  const stars = useStars(100);
+
   return (
     <div className="fixed inset-0 z-0 overflow-hidden">
-      {/* Première forme - Rouge profond saturé */}
+      {/* Fond noir */}
       <motion.div
         className="absolute"
-        animate={{
-          scale: [1, 1.35, 0.85, 1.25, 1],
-          x: ["0%", "12%", "28%", "18%", "0%"],
-          y: ["0%", "18%", "22%", "12%", "0%"],
-          rotate: [0, 20, -15, 10, 0],
-          borderRadius: [
-            "35% 65% 70% 30% / 30% 35% 65% 70%",
-            "65% 35% 30% 70% / 65% 35% 70% 30%",
-            "30% 65% 70% 35% / 55% 65% 35% 60%",
-            "65% 35% 30% 70% / 65% 35% 70% 30%",
-            "35% 65% 70% 30% / 30% 35% 65% 70%",
-          ],
-        }}
         style={{
-          backgroundColor: "rgba(220, 20, 60, 0.4)", // Rouge profond + transparence
-          width: "100vw",
-          height: "100vh",
-          top: "-25%",
-          left: "-15%",
+          width: "120vw",
+          height: "120vh",
+          top: "-10%",
+          left: "-10%",
+          backgroundColor: "rgba(0,0,0,1)",
           filter: "blur(120px)",
-          opacity: 0.35,
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut",
         }}
       />
 
-      {/* Deuxième forme - Rouge moyen lumineux */}
+      {/* Formes rouges derrière */}
       <motion.div
         className="absolute"
         animate={{
@@ -54,13 +63,13 @@ const BackgroundAnimation = () => {
           ],
         }}
         style={{
-          backgroundColor: "rgba(255, 69, 58, 0.3)", // Rouge vif + transparence
           width: "90vw",
           height: "90vh",
           top: "22%",
           left: "18%",
-          filter: "blur(140px)",
-          opacity: 0.25,
+          backgroundColor: "rgba(255,0,0,0.45)",
+          filter: "blur(120px)",
+          opacity: 0.5,
         }}
         transition={{
           duration: 22,
@@ -70,40 +79,33 @@ const BackgroundAnimation = () => {
         }}
       />
 
-      {/* Troisième forme - Rouge clair flamboyant */}
-      <motion.div
-        className="absolute"
-        animate={{
-          scale: [1, 1.55, 0.95, 1.15, 1],
-          x: ["6%", "-18%", "22%", "12%", "6%"],
-          y: ["32%", "22%", "12%", "18%", "32%"],
-          rotate: [0, -18, 12, -6, 0],
-          borderRadius: [
-            "42% 58% 52% 48% / 52% 48% 42% 58%",
-            "52% 48% 42% 58% / 62% 38% 52% 48%",
-            "52% 42% 62% 48% / 52% 52% 42% 58%",
-            "52% 48% 42% 58% / 62% 38% 52% 48%",
-            "42% 58% 52% 48% / 52% 48% 42% 58%",
-          ],
-        }}
-        style={{
-          backgroundColor: "rgba(255, 99, 71, 0.25)", // Rouge clair + transparence
-          width: "85vw",
-          height: "85vh",
-          bottom: "-18%",
-          right: "-12%",
-          filter: "blur(160px)",
-          opacity: 0.2,
-        }}
-        transition={{
-          duration: 24,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut",
-        }}
-      />
+      {/* Étoiles au-dessus du noir et rouge */}
+      {stars &&
+        stars.map((star, i) => (
+          <motion.div
+            key={i}
+            className="absolute bg-white rounded-full"
+            style={{
+              width: star.size,
+              height: star.size,
+              left: `${star.left}%`,
+              top: `${star.top}%`,
+              opacity: star.opacity,
+            }}
+            animate={{
+              opacity: [star.opacity * 0.5, star.opacity, star.opacity * 0.5],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: star.duration,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: star.delay,
+            }}
+          />
+        ))}
     </div>
   );
 };
 
-export default BackgroundAnimation;
+export default BackgroundWithStars;

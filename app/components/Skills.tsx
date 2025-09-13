@@ -1,158 +1,174 @@
 "use client";
 import { motion } from "framer-motion";
-import { Code2, Palette, Rocket } from "lucide-react";
+import { useState } from "react";
 
 type SkillsProps = {
   id: string;
 };
 
 const Skills: React.FC<SkillsProps> = ({ id }) => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   const skills = [
     {
-      icon: <Code2 className="w-12 h-12 text-white" />,
       title: "Frontend Development",
       description:
-        "Expert in building dynamic, responsive, and accessible web interfaces using React, Next.js, and TailwindCSS. Focused on clean code, maintainable architecture, and elegant user experience without claiming professional UI/UX design expertise.",
-      technologies: [
-        "React",
-        "Next.js",
-        "TailwindCSS",
-        "Responsive Design",
-        "Accessibility (a11y)",
-      ],
+        "Crafts dynamic and responsive web interfaces with React, Next.js, and TailwindCSS. Focused on smooth user experiences and elegant code structure.",
+      technologies: ["React", "Next.js", "TailwindCSS", "Responsive", "A11y"],
     },
     {
-      icon: <Rocket className="w-12 h-12 text-white" />,
+      title: "UI, Optimization & Best Practices",
+      description:
+        "Designs intuitive interfaces, implements SEO basics, and optimizes performance while maintaining clarity and accessibility.",
+      technologies: ["UI", "SEO", "Performance", "Debugging"],
+    },
+    {
+      title: "API & REST Integration",
+      description:
+        "Integrates REST APIs and external services for seamless frontend-backend communication and data handling.",
+      technologies: ["REST APIs", "API Routes", "Integration", "Data"],
+    },
+    {
       title: "Backend Development",
       description:
-        "Experience creating robust backend systems with Node.js and Express, including RESTful APIs. Basic experience in PHP & Laravel. Backend solutions designed to support scalable web applications.",
-      technologies: [
-        "Node.js",
-        "Express",
-        "REST APIs",
-        "PHP",
-        "Laravel",
-        "Database Design",
-      ],
+        "Builds scalable backends with Node.js, Express, and optional PHP/Laravel support, focusing on modern fullstack solutions.",
+      technologies: ["Node.js", "Express", "Database", "PHP", "Laravel"],
     },
     {
-      icon: <Code2 className="w-12 h-12 text-white" />,
       title: "Fullstack Development",
       description:
-        "Specializes in building fullstack web applications primarily using Next.js. This approach allows seamless integration of frontend and backend in a single framework, leveraging Next.js Server & Client Components, API Routes, and optimized rendering strategies. While Node.js and Express are optional, most projects are implemented entirely with Next.js for simplicity and performance. Basic experience exists with PHP & Laravel for legacy or hybrid setups, but the focus remains on modern full Next.js architecture.",
+        "Combines frontend, backend, and API layers with Next.js for unified, high-performance applications.",
       technologies: [
-        "Next.js (frontend + backend)",
+        "Next.js",
         "React",
         "TailwindCSS",
-
-        "API Routes",
-        "Server & Client Components",
+        "Server/Client Components",
       ],
     },
     {
-      icon: <Palette className="w-12 h-12 text-white" />,
-      title: "Version Control & Collaboration",
+      title: "Version Control & Deployment",
       description:
-        "Proficient in Git and GitHub for version control, collaboration, and maintaining clean code history. Able to manage branches, pull requests, and merge conflicts effectively.",
-      technologies: ["Git", "GitHub", "Branching", "Pull Requests"],
-    },
-    {
-      icon: <Code2 className="w-12 h-12 text-white" />,
-      title: "Technical Practices & Optimization",
-      description:
-        "Skilled in responsive design, SEO-friendly code, performance optimization, and debugging. Ensures web applications are fast, accessible, and maintainable.",
-      technologies: [
-        "Responsive Design",
-        "SEO Basics",
-        "Debugging",
-        "Performance Optimization",
-      ],
-    },
-    {
-      icon: <Rocket className="w-12 h-12 text-white" />,
-      title: "Learning & Adaptability",
-      description:
-        "Quickly learns new technologies, tools, and frameworks. Able to adapt fullstack solutions depending on project requirements, while keeping a preference for full Next.js architecture.",
-      technologies: [
-        "Adaptability",
-        "Rapid Learning",
-        "Problem Solving",
-        "Modern Web Practices",
-      ],
+        "Proficient with Git, GitHub, and deploying apps on Vercel; open to alternative platforms while maintaining modern workflows.",
+      technologies: ["Git", "GitHub", "Branching", "Pull Requests", "Vercel"],
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.25, delayChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.9, rotate: -3 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        type: "spring",
+        stiffness: 120,
+        damping: 20,
+        duration: 0.8,
+      },
+    },
+  };
+
   return (
-    <section
-      id={id}
-      className="relative py-32 px-10 md:px-12 
-                 bg-black/5 backdrop-blur-2xl border border-white/3 
-                 rounded-3xl shadow-xl"
-    >
-      {/* Header */}
+    <section id={id} className="relative py-32 px-6 md:px-12 overflow-visible">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-20"
+        transition={{ duration: 0.8 }}
+        className="text-center mb-20 relative z-10"
       >
-        <h2 className="text-5xl font-bold text-white mb-4">My Skills</h2>
-        <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-          Here are some of my core skills and technologies I use to craft
-          modern, efficient, and beautiful digital experiences.
+        <h2 className="text-5xl md:text-6xl font-extrabold text-white/90 tracking-tight mb-4">
+          Value I Bring
+        </h2>
+        <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          I create clean, functional web experiences that help clients succeed.
         </p>
       </motion.div>
 
-      {/* Skills */}
-      <div className="flex flex-col gap-16 max-w-5xl mx-auto">
+      {/* Skills flow */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="relative z-10 flex flex-wrap justify-center items-start gap-12 md:gap-16"
+      >
         {skills.map((skill, index) => (
           <motion.div
             key={index}
-            className={`flex flex-col md:flex-row items-center gap-8 ${
-              index % 2 === 1 ? "md:flex-row-reverse" : ""
-            }`}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2 }}
+            variants={itemVariants}
+            onHoverStart={() => setHoveredIndex(index)}
+            onHoverEnd={() => setHoveredIndex(null)}
+            className="group relative w-full sm:w-1/2 md:w-1/3 lg:w-1/4 "
           >
-            {/* Icon */}
+            {/* Glass module */}
             <div
-              className="flex-shrink-0 flex items-center justify-center 
-                            w-24 h-24 bg-black/20 backdrop-blur-md 
-                            rounded-full border-2 border-white"
+              className={`relative p-8 rounded-3xl border border-white/10
+                          bg-white/5 backdrop-blur-3xl
+                          hover:scale-105 hover:rotate-1 hover:shadow-2xl hover:shadow-white/8
+                          transition-all duration-700 ease-out overflow-hidden`}
             >
-              {skill.icon}
-            </div>
+              {/* Subtle overlay */}
+              <div
+                className={`absolute inset-0 rounded-3xl bg-white/8 backdrop-blur-lg
+                            opacity-25 group-hover:opacity-50 transition-opacity duration-500`}
+              />
 
-            {/* Content */}
-            <div
-              className="flex-1 text-center md:text-left 
-                         bg-black/10 backdrop-blur-md 
-                         border border-white/10 rounded-2xl 
-                         p-8 shadow-md hover:shadow-lg 
-                         transition-shadow duration-300"
-            >
-              <h3 className="text-2xl font-semibold text-white mb-2">
+              {/* Title */}
+              <h3 className="relative z-10 text-3xl font-bold text-white mb-3">
                 {skill.title}
               </h3>
-              <p className="text-gray-300 mb-4">{skill.description}</p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-2">
+
+              {/* Description */}
+              <p className="relative z-10 text-white/90 mb-4 text-sm md:text-base leading-relaxed">
+                {skill.description}
+              </p>
+
+              {/* Technologies */}
+              <div className="flex flex-wrap gap-2 relative z-10">
                 {skill.technologies.map((tech, i) => (
                   <span
                     key={i}
-                    className="text-sm text-gray-300 
-                               bg-black/10 backdrop-blur-sm 
-                               px-3 py-1 rounded-full 
-                               border border-white/10"
+                    className="text-xs font-medium text-white/90 bg-black/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20
+                               "
                   >
                     {tech}
                   </span>
                 ))}
               </div>
+
+              {/* Minimal floating particles */}
+              <motion.div
+                className="absolute -top-2 -right-2 w-2 h-2 bg-white/20 rounded-full"
+                animate={{ y: [0, -4, 0], x: [0, 3, 0] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 2,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.div
+                className="absolute -bottom-2 -left-2 w-2 h-2 bg-white/20 rounded-full"
+                animate={{ y: [0, 3, 0], x: [0, -3, 0] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 2.5,
+                  ease: "easeInOut",
+                }}
+              />
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

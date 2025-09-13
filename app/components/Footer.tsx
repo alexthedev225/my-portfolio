@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="relative mt-24">
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black pointer-events-none" />
 
       {/* Content */}
       <motion.div
@@ -24,15 +24,15 @@ const Footer = () => {
             <motion.h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
               AlexCode
             </motion.h3>
-            <p className="text-white/80 max-w-xs">
+            <p className="text-white/90 max-w-xs">
               Building digital experiences that make a difference
             </p>
           </div>
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h4 className="text-white font-medium">Contact</h4>
-            <div className="space-y-2 text-white/80">
+            <h4 className="text-white font-bold text-xl">Contact</h4>
+            <div className="space-y-2 text-white/90">
               <p>alexcode225@gmail.com</p>
               <p>Abidjan, Cote d'Ivoire</p>
             </div>
@@ -42,18 +42,18 @@ const Footer = () => {
         <Separator className="my-8 bg-white/10" />
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white/80 text-sm">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white/90 text-sm">
           <p>© {currentYear} AlexCode. All rights reserved.</p>
           <div className="flex gap-4">
             <Button
               variant="link"
-              className="text-white/80 hover:text-white p-0 h-auto text-sm"
+              className="text-white/90 hover:text-white p-0 h-auto text-sm"
             >
               Privacy Policy
             </Button>
             <Button
               variant="link"
-              className="text-white/80 hover:text-white p-0 h-auto text-sm"
+              className="text-white/90 hover:text-white p-0 h-auto text-sm"
             >
               Terms of Service
             </Button>
