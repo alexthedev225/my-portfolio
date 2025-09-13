@@ -2,14 +2,14 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
-import { useState } from "react";
+
 
 type ContactSectionProps = {
   id: string;
 };
 
 const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
-  const [hovered, setHovered] = useState(false);
+ 
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -65,8 +65,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
             type={placeholder === "Your Email" ? "email" : "text"}
             placeholder={placeholder}
             variants={itemVariants}
-            onHoverStart={() => setHovered(true)}
-            onHoverEnd={() => setHovered(false)}
             className={`bg-white/10 backdrop-blur-3xl border border-white/10 rounded-3xl p-6
                         text-white placeholder:text-white/80
                         focus:outline-none focus:border-white/20 transition-all duration-500

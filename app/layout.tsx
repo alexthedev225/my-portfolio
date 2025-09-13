@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { PT_Serif } from 'next/font/google';
 
@@ -10,12 +9,6 @@ const ptSerif = PT_Serif({
   display: 'swap',
 });
 
-const playfairDisplay = Playfair_Display({
-  weight: ['400', '700'], // Spécifiez les poids nécessaires
-  style: ['normal', 'italic'], // Spécifiez les styles nécessaires
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 
 export const metadata: Metadata = {
