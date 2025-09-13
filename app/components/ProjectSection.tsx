@@ -21,10 +21,10 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ id }) => {
         transition={{ duration: 0.8 }}
         className="text-center mb-20 relative z-10"
       >
-        <h2 className="text-5xl md:text-6xl font-extrabold text-white/90 tracking-tight mb-4">
+        <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
           Work in Action
         </h2>
-        <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+        <p className="text-white/90 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
           Real projects that turn clean design, performance, and usability into
           results.
         </p>
@@ -34,7 +34,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ id }) => {
         {projects.map((project, index) => (
           <motion.div
             key={project.title}
-            className={`relative flex flex-col lg:flex-row items-center gap-8 p-8 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(255,255,255,0.05)]
+            className={`relative flex flex-col lg:flex-row items-center gap-8 p-8 rounded-3xl bg-white/3 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(255,255,255,0.05)]
             transition-transform duration-500 hover:-translate-y-3 hover:shadow-[0_12px_40px_rgba(255,255,255,0.1)]
             ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
             initial={{ opacity: 0, y: 50 }}
@@ -55,7 +55,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ id }) => {
             {/* Content */}
             <div className="flex-1 flex flex-col gap-4">
               <h3 className="text-3xl font-bold text-white">{project.title}</h3>
-              <p className="text-white/80 text-sm md:text-base">
+              <p className="text-white/90 text-sm md:text-base">
                 {project.description}
               </p>
 
@@ -63,7 +63,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ id }) => {
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="text-xs font-medium text-white/90 bg-black/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20"
+                    className="text-xs font-medium text-white bg-black/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20"
                   >
                     {tech}
                   </span>

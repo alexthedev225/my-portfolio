@@ -55,7 +55,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
             >
               <Icon
                 size={20}
-                className="text-white/70 group-hover:text-white transition-colors"
+                className="text-white/90 group-hover:text-white transition-colors"
               />
               {/* Effet de lueur */}
               <div
@@ -133,7 +133,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
             >
               {/* Effet de lueur animée */}
               <motion.div
-                className="absolute -inset-1 bg-gradient-to-r from-red-300 via-red-300 to-red-300 
+                className="absolute -inset-1 bg-gradient-to-r from-violet-300 via-violet-300 to-violet-300 
                            rounded-2xl opacity-20 blur-lg"
                 animate={{
                   opacity: [0.1, 0.2, 0.1],
@@ -154,7 +154,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection, id }) => {
                           transition-all duration-500 ease-out
                           hover:bg-white/8
                           hover:border-white/40 
-                          hover:shadow-red-500/20 group-hover:text-white cursor-pointer"
+                          hover:shadow-violet-500/20 group-hover:text-white cursor-pointer"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Contact me

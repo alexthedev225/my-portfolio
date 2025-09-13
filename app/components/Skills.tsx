@@ -91,10 +91,10 @@ const Skills: React.FC<SkillsProps> = ({ id }) => {
         transition={{ duration: 0.8 }}
         className="text-center mb-20 relative z-10"
       >
-        <h2 className="text-5xl md:text-6xl font-extrabold text-white/90 tracking-tight mb-4">
+        <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
           Value I Bring
         </h2>
-        <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+        <p className="text-white/90 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
           I create clean, functional web experiences that help clients succeed.
         </p>
       </motion.div>
@@ -110,7 +110,7 @@ const Skills: React.FC<SkillsProps> = ({ id }) => {
           <div key={index} className="flex flex-col items-center w-full">
             <motion.div
               variants={itemVariants}
-              className="group flex flex-col gap-3 p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:scale-[1.01] transition-all w-full"
+              className="group flex flex-col gap-3 p-6 rounded-2xl bg-white/3 backdrop-blur-md border border-white/10 hover:scale-[1.01] transition-all w-full"
             >
               <h3 className="text-2xl font-bold text-white">{skill.title}</h3>
               <p className="text-white/90 text-sm md:text-base leading-relaxed mt-2">
@@ -120,7 +120,7 @@ const Skills: React.FC<SkillsProps> = ({ id }) => {
                 {skill.technologies.map((tech, i) => (
                   <span
                     key={i}
-                    className="text-xs font-medium text-white/90 bg-black/10 px-3 py-1.5 rounded-full border border-white/20"
+                    className="text-xs font-medium text-white bg-black/10 px-3 py-1.5 rounded-full border border-white/20"
                   >
                     {tech}
                   </span>

@@ -17,7 +17,7 @@ const useStars = (count: number = 100) => {
       Array.from({ length: count }).map(() => ({
         size: Math.random() * 3 + 0.5,
         left: Math.random() * 100,
-        top: Math.random() * 55,
+        top: Math.random() * 100,
         opacity: Math.random() * 0.6 + 0.4,
         delay: Math.random() * 2,
         duration: 2 + Math.random() * 2,
@@ -46,13 +46,13 @@ const BackgroundWithStars = () => {
         }}
       />
 
-      {/* Formes rouges derrière */}
+      {/* Formes dégradé bleu nuit → violet */}
       <motion.div
         className="absolute"
         animate={{
-          scale: [1.25, 0.95, 1.35, 1.05, 1.25],
-          x: ["-12%", "22%", "-18%", "12%", "-12%"],
-          y: ["12%", "8%", "28%", "18%", "12%"],
+          scale: [1.2, 0.95, 1.3, 1.05, 1.2],
+          x: ["-12%", "20%", "-18%", "10%", "-12%"],
+          y: ["10%", "5%", "25%", "15%", "10%"],
           rotate: [8, -12, 18, -8, 8],
           borderRadius: [
             "52% 48% 42% 58% / 52% 58% 42% 52%",
@@ -67,9 +67,9 @@ const BackgroundWithStars = () => {
           height: "90vh",
           top: "22%",
           left: "18%",
-          backgroundColor: "rgba(255,0,0,0.45)",
+          background: "linear-gradient(135deg, #0a0f4b, #4b0082)", // bleu nuit → violet
           filter: "blur(120px)",
-          opacity: 0.5,
+          opacity: 0.6,
         }}
         transition={{
           duration: 22,
@@ -79,7 +79,7 @@ const BackgroundWithStars = () => {
         }}
       />
 
-      {/* Étoiles au-dessus du noir et rouge */}
+      {/* Étoiles */}
       {stars &&
         stars.map((star, i) => (
           <motion.div

@@ -42,10 +42,10 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
         transition={{ duration: 0.8 }}
         className="text-center mb-20 relative z-10"
       >
-        <h2 className="text-5xl md:text-6xl font-extrabold text-white/90 tracking-tight mb-4">
+        <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
           Let&apos;s Connect
         </h2>
-        <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+        <p className="text-white/90 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
           Have an idea or a project? Let&apos;s build something extraordinary
           together.
         </p>
@@ -65,8 +65,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
             type={placeholder === "Your Email" ? "email" : "text"}
             placeholder={placeholder}
             variants={itemVariants}
-            className={`bg-white/10 backdrop-blur-3xl border border-white/10 rounded-3xl p-6
-                        text-white placeholder:text-white/80
+            className={`bg-white/3 backdrop-blur-3xl border border-white/10 rounded-3xl p-6
+                        text-white placeholder:text-white/90
                         focus:outline-none focus:border-white/20 transition-all duration-500
                         `}
           />
@@ -74,8 +74,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
         <motion.textarea
           placeholder="Your Message"
           variants={itemVariants}
-          className={`md:col-span-2 bg-white/10 backdrop-blur-3xl border border-white/10 rounded-3xl p-6
-                      text-white placeholder:text-white/80 min-h-[220px]
+          className={`md:col-span-2 bg-white/3 backdrop-blur-3xl border border-white/10 rounded-3xl p-6
+                      text-white placeholder:text-white/90 min-h-[220px]
                       focus:outline-none focus:border-white/20 transition-all duration-500 resize-none
                       `}
         />
